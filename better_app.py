@@ -2,9 +2,15 @@ from flask import Flask, render_template, request, url_for, redirect
 from flask_sqlalchemy import SQLAlchemy
 
 # Initialize your Flask app and create the database client
-# Replace the values in < > with the relevant values from RDS
+# Replace the values starting with DB to connect
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql+psycopg2://<USER>:<PSWD>@<DB>.<HOST>:5432"
+
+DB_USER = None
+DB_PSWD = None
+DB_NAME = None
+DB_HOST = None
+
+app.config['SQLALCHEMY_DATABASE_URI'] = f"postgresql+psycopg2://{DB_USER}:{DB_PSWD}@{DB_NAME}.{DB_HOST}:5432"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
