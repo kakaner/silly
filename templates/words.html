@@ -1,0 +1,11 @@
+<form method="post">
+  Save a new word: <input name="word"/>
+  <br/><br/>
+  <button type="submit">Save</button>
+</form>
+
+<h1>All of my words</h1>
+{% for word in words %}
+  <p>{{ word.word }}</p>
+{% endfor %}
+
