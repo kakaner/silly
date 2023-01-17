@@ -4,8 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 # Initialize your Flask app and create the database client
 # Replace the values in < > with the relevant values from RDS
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] =\
-        "postgresql+psycopg2://<USER>:<PSWD>@<DB>.<HOST>:5432"
+app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql+psycopg2://<USER>:<PSWD>@<DB>.<HOST>:5432"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
@@ -34,5 +33,5 @@ def index():
     words = Word.query.all()    
     return render_template("words.html", words=words)
 
-# run the app on port 81
-app.run(host='0.0.0.0', port=81)
+# run the app on port 5000
+app.run(host='0.0.0.0', port=5000)
